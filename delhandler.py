@@ -16,3 +16,14 @@ class DelHandler(tornado.web.RequestHandler):
         else:
             self.write("Book '{0}' not found".format(title))
             self.set_status(404)
+
+    def post(self):
+        data = json.loads(self.request.body)
+        title = data["title"]
+        result = self.books.del_book(title)
+        if result:
+            self.write("Deleted book title: {0} successfully".format(title))
+            self.set_status(200)
+        else:
+            self.write("Book '{0}' not found".format(title))
+            self.set_status(404)

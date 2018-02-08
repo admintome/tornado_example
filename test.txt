@@ -1,0 +1,23 @@
+# Test the mainhandler
+GET http://localhost:8888/v1
+# Test the add book handler GET
+GET http://localhost:8888/v1/addbook?title=test2&author=bill
+# Test the add book handler POST
+POST http://localhost:8888/v1/addbook
+Content-Type: application/json
+
+{
+        "title": "test",
+        "author": "bill"
+}
+# Test the show all books handler
+GET http://localhost:8888/v1/getbooks
+# Test the del book handler GET
+GET http://localhost:8888/v1/delbook?title=test
+# Test the del book handler POST
+POST http://localhost:8888/v1/delbook
+Content-Type: application/json
+
+{
+	"title": "test2"
+}

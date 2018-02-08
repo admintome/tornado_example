@@ -12,3 +12,10 @@ class AddHandler(tornado.web.RequestHandler):
         author = self.get_argument('author')
         result = self.books.add_book(title, author)
         self.write(result)
+
+    def post(self):
+        data = json.loads(self.request.body)
+        title = data["title"]
+        author = data["author"]
+        result = self.books.add_book(title, author)
+        self.write(result)
